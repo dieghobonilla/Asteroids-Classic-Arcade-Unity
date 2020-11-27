@@ -1,0 +1,941 @@
+fileFormatVersion: 2
+guid: 93cb0c01d0d82004da1f6f81a61c7cc8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2094430608628832494
+    second: AsteroidsSprites_0
+  - first:
+      213: 3607810289297272005
+    second: AsteroidsSprites_0
+  - first:
+      213: -1948384253646366586
+    second: AsteroidsSprites_1
+  - first:
+      213: 2147841377267122498
+    second: AsteroidsSprites_2
+  - first:
+      213: 7038569322266634231
+    second: AsteroidsSprites_3
+  - first:
+      213: 2053494902929913277
+    second: AsteroidsSprites_4
+  - first:
+      213: -6859215838964407468
+    second: AsteroidsSprites_5
+  - first:
+      213: -7966257008037207488
+    second: AsteroidsSprites_6
+  - first:
+      213: 3918797316797425545
+    second: AsteroidsSprites_7
+  - first:
+      213: 9073173498101247224
+    second: AsteroidsSprites_8
+  - first:
+      213: -3547917359187957174
+    second: AsteroidsSprites_9
+  - first:
+      213: -545077343536653613
+    second: AsteroidsSprites_10
+  - first:
+      213: 145193731018757428
+    second: AsteroidsSprites_11
+  - first:
+      213: -121725775739092079
+    second: AsteroidsSprites_12
+  - first:
+      213: 6296793966263053124
+    second: AsteroidsSprites_13
+  - first:
+      213: 3588460974555170768
+    second: Ship1
+  - first:
+      213: 1695336943511136094
+    second: Ship2
+  - first:
+      213: 2111771344070894700
+    second: Bullet
+  - first:
+      213: -2996832548036570546
+    second: AsteroidsSprites_17
+  - first:
+      213: 7784510087556407204
+    second: AsteroidsSprites_18
+  - first:
+      213: 4322461891149034685
+    second: AsteroidsSprites_19
+  - first:
+      213: -81967145845923839
+    second: AsteroidsSprites_20
+  - first:
+      213: -6022523329398187327
+    second: AsteroidsSprites_21
+  - first:
+      213: -5939024243373412699
+    second: AsteroidsSprites_22
+  - first:
+      213: 2356697453379357303
+    second: AsteroidsSprites_23
+  - first:
+      213: -7448195840603487259
+    second: AsteroidsSprites_24
+  - first:
+      213: -925497431433350928
+    second: AsteroidsSprites_25
+  - first:
+      213: -390995234068296847
+    second: AsteroidsSprites_26
+  - first:
+      213: 6217083306069065093
+    second: AsteroidsSprites_27
+  - first:
+      213: -8614977072752044216
+    second: Big1
+  - first:
+      213: 3916886058466457529
+    second: Big2
+  - first:
+      213: -2816887431643243030
+    second: Big3
+  - first:
+      213: 2238606491397286826
+    second: Big4
+  - first:
+      213: 577731908731710254
+    second: AsteroidsSprites_32
+  - first:
+      213: 197608002505702638
+    second: AsteroidsSprites_33
+  - first:
+      213: -3297715246332877936
+    second: AsteroidsSprites_34
+  - first:
+      213: -5579692527587224579
+    second: Medium1
+  - first:
+      213: 4893134162036368551
+    second: Medium2
+  - first:
+      213: -6160673969009258862
+    second: Medium3
+  - first:
+      213: -8635684377339986056
+    second: Medium4
+  - first:
+      213: 5327657375509716851
+    second: Small1
+  - first:
+      213: 4747032302266726078
+    second: Small2
+  - first:
+      213: 9161067471393714100
+    second: Small3
+  - first:
+      213: -8083063269560091009
+    second: UFO1
+  - first:
+      213: 2114815609093044832
+    second: UFO2
+  - first:
+      213: 7791366020498850356
+    second: Small4
+  - first:
+      213: 1375213021377226126
+    second: AsteroidsSprites_45
+  - first:
+      213: -5557301232759048581
+    second: AsteroidsSprites_46
+  - first:
+      213: 1383489335309339500
+    second: AsteroidsSprites_47
+  - first:
+      213: 2221617127588627731
+    second: AsteroidsSprites_48
+  - first:
+      213: -5314129313245819903
+    second: AsteroidsSprites_49
+  - first:
+      213: 5382049748942896888
+    second: AsteroidsSprites_50
+  - first:
+      213: 2140209200703123052
+    second: AsteroidsSprites_51
+  - first:
+      213: 12967451759130849
+    second: AsteroidsSprites_52
+  - first:
+      213: -3393520316215435179
+    second: AsteroidsSprites_53
+  - first:
+      213: -1063344406397019691
+    second: AsteroidsSprites_54
+  - first:
+      213: -1418522409142803193
+    second: AsteroidsSprites_55
+  - first:
+      213: 3535582087027521469
+    second: AsteroidsSprites_56
+  - first:
+      213: 708670368933946500
+    second: AsteroidsSprites_57
+  - first:
+      213: -5617661345440822978
+    second: AsteroidsSprites_58
+  - first:
+      213: 4853905174004283974
+    second: AsteroidsSprites_59
+  - first:
+      213: -1463584025918637162
+    second: AsteroidsSprites_60
+  - first:
+      213: -6861920800007218337
+    second: AsteroidsSprites_61
+  - first:
+      213: -6164406343448138721
+    second: AsteroidsSprites_62
+  - first:
+      213: -5206655821793832011
+    second: AsteroidsSprites_63
+  - first:
+      213: -870158041315975198
+    second: AsteroidsSprites_64
+  - first:
+      213: 8411844130745178367
+    second: AsteroidsSprites_65
+  - first:
+      213: 7530647751737739788
+    second: AsteroidsSprites_66
+  - first:
+      213: 234882638398772667
+    second: AsteroidsSprites_67
+  - first:
+      213: 3409900200280313938
+    second: AsteroidsSprites_68
+  - first:
+      213: -9137552038644841881
+    second: AsteroidsSprites_69
+  - first:
+      213: -5424237057940773331
+    second: AsteroidsSprites_70
+  - first:
+      213: 3301420725227604874
+    second: AsteroidsSprites_71
+  - first:
+      213: -1683433116870047926
+    second: AsteroidsSprites_72
+  - first:
+      213: 4246411200603952252
+    second: AsteroidsSprites_73
+  - first:
+      213: -6981404982433539152
+    second: AsteroidsSprites_74
+  - first:
+      213: -5945426114439808776
+    second: AsteroidsSprites_75
+  - first:
+      213: -7952746287949930916
+    second: AsteroidsSprites_76
+  - first:
+      213: 8417075774969505187
+    second: AsteroidsSprites_77
+  - first:
+      213: -2763733211433770214
+    second: AsteroidsSprites_78
+  - first:
+      213: 641098731813922930
+    second: AsteroidsSprites_79
+  - first:
+      213: 1584765633731544711
+    second: AsteroidsSprites_80
+  - first:
+      213: -3880522470063082666
+    second: AsteroidsSprites_81
+  - first:
+      213: -5054312440341751548
+    second: AsteroidsSprites_82
+  - first:
+      213: 7179637872885205963
+    second: AsteroidsSprites_83
+  - first:
+      213: -5938145606751247426
+    second: AsteroidsSprites_84
+  - first:
+      213: 775342278630286618
+    second: AsteroidsSprites_85
+  - first:
+      213: -3566002327722583445
+    second: AsteroidsSprites_86
+  - first:
+      213: 5752541197202877392
+    second: AsteroidsSprites_87
+  - first:
+      213: -2555135741329412500
+    second: AsteroidsSprites_88
+  - first:
+      213: 2571303302984983761
+    second: AsteroidsSprites_89
+  - first:
+      213: 4259436994694376485
+    second: AsteroidsSprites_90
+  - first:
+      213: 2491876809601078273
+    second: AsteroidsSprites_91
+  - first:
+      213: 4019320311356389930
+    second: AsteroidsSprites_92
+  - first:
+      213: -5395977574071645913
+    second: AsteroidsSprites_93
+  - first:
+      213: 8281863655316795144
+    second: AsteroidsSprites_94
+  - first:
+      213: -2272863264860672740
+    second: AsteroidsSprites_95
+  - first:
+      213: 8036380246671004669
+    second: AsteroidsSprites_96
+  - first:
+      213: 4907191579209648162
+    second: AsteroidsSprites_97
+  - first:
+      213: -268306604261897634
+    second: AsteroidsSprites_98
+  - first:
+      213: -4349954741163037507
+    second: AsteroidsSprites_99
+  - first:
+      213: -3799838679513857270
+    second: AsteroidsSprites_100
+  - first:
+      213: -7403450786005076805
+    second: AsteroidsSprites_101
+  - first:
+      213: -308764302475573816
+    second: AsteroidsSprites_102
+  - first:
+      213: 8777876610492487616
+    second: AsteroidsSprites_103
+  - first:
+      213: -8349187188071587636
+    second: AsteroidsSprites_104
+  - first:
+      213: -4551244323363762612
+    second: AsteroidsSprites_105
+  - first:
+      213: -1210347267637620076
+    second: AsteroidsSprites_106
+  - first:
+      213: -6007957056325514631
+    second: AsteroidsSprites_107
+  - first:
+      213: 7345099075717730223
+    second: AsteroidsSprites_108
+  - first:
+      213: -2634342456118261711
+    second: AsteroidsSprites_109
+  - first:
+      213: 4925779908209059151
+    second: AsteroidsSprites_110
+  - first:
+      213: -2822143048726884797
+    second: AsteroidsSprites_111
+  - first:
+      213: -8884187686661383022
+    second: AsteroidsSprites_112
+  - first:
+      213: -5877944482019654919
+    second: AsteroidsSprites_113
+  - first:
+      213: -2574065366455924122
+    second: AsteroidsSprites_114
+  - first:
+      213: 9034746159837886423
+    second: AsteroidsSprites_115
+  - first:
+      213: -3125406613989441437
+    second: AsteroidsSprites_116
+  - first:
+      213: 2993609824758665136
+    second: AsteroidsSprites_117
+  - first:
+      213: -7577632289310662922
+    second: AsteroidsSprites_118
+  - first:
+      213: -5233221119504986573
+    second: AsteroidsSprites_119
+  - first:
+      213: -4687908740145953430
+    second: AsteroidsSprites_120
+  - first:
+      213: -2750672739447992604
+    second: AsteroidsSprites_121
+  - first:
+      213: -62929904152777969
+    second: AsteroidsSprites_122
+  - first:
+      213: -4340836525581857126
+    second: AsteroidsSprites_123
+  - first:
+      213: -8063572705251325750
+    second: AsteroidsSprites_124
+  - first:
+      213: -618907458773573485
+    second: AsteroidsSprites_125
+  - first:
+      213: 1726382086442863343
+    second: AsteroidsSprites_126
+  - first:
+      213: -4849316598096277973
+    second: AsteroidsSprites_127
+  - first:
+      213: -2209030760426317417
+    second: AsteroidsSprites_128
+  - first:
+      213: 4371791520015035180
+    second: AsteroidsSprites_129
+  - first:
+      213: 8025244432001830906
+    second: AsteroidsSprites_130
+  - first:
+      213: -5751891945186399648
+    second: AsteroidsSprites_131
+  - first:
+      213: -7190200980373449798
+    second: AsteroidsSprites_132
+  - first:
+      213: 3026147682910243828
+    second: AsteroidsSprites_133
+  - first:
+      213: 8343792262493855639
+    second: AsteroidsSprites_134
+  - first:
+      213: 2446185620241234833
+    second: AsteroidsSprites_135
+  - first:
+      213: 6599408577064197630
+    second: AsteroidsSprites_136
+  - first:
+      213: 3855876829620758226
+    second: AsteroidsSprites_137
+  - first:
+      213: 3994327857069573113
+    second: AsteroidsSprites_138
+  - first:
+      213: 1572154356679725480
+    second: AsteroidsSprites_139
+  - first:
+      213: 8029392992368659921
+    second: AsteroidsSprites_140
+  - first:
+      213: 2970561902396488534
+    second: AsteroidsSprites_141
+  - first:
+      213: -5275461339470181962
+    second: AsteroidsSprites_142
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Lumin
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ship1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 449
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d786be6e36ccc130800000000000000
+      internalID: 3588460974555170768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ship2
+      rect:
+        serializedVersion: 2
+        x: 61
+        y: 450
+        width: 46
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e57e394c7fb078710800000000000000
+      internalID: 1695336943511136094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 452
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c64e13a49d48e4d10800000000000000
+      internalID: 2111771344070894700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 262
+        width: 110
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 847da761ff3717880800000000000000
+      internalID: -8614977072752044216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 263
+        width: 108
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b7b29c1e139b5630800000000000000
+      internalID: 3916886058466457529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big3
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 264
+        width: 118
+        height: 91
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed54a03ec768e8d0800000000000000
+      internalID: -2816887431643243030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Big4
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 265
+        width: 114
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aab6e974eb0211f10800000000000000
+      internalID: 2238606491397286826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 191
+        width: 62
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df313496533f092b0800000000000000
+      internalID: -5579692527587224579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 193
+        width: 65
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a4a18e6897e7e340800000000000000
+      internalID: 4893134162036368551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 193
+        width: 66
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29e05347aa3e08aa0800000000000000
+      internalID: -6160673969009258862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medium4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 191
+        width: 65
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87f724800d2e72880800000000000000
+      internalID: -8635684377339986056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 150
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37f1f38e724afe940800000000000000
+      internalID: 5327657375509716851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 150
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6b9e16ab8d0e140800000000000000
+      internalID: 4747032302266726078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small3
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 149
+        width: 35
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bfeecbe356a22f70800000000000000
+      internalID: 9161067471393714100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UFO1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 76
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7efcd048c033df80800000000000000
+      internalID: -8083063269560091009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UFO2
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 12
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06a31797795595d10800000000000000
+      internalID: 2114815609093044832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Small4
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 147
+        width: 44
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43202ee7d1e702c60800000000000000
+      internalID: 7791366020498850356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
