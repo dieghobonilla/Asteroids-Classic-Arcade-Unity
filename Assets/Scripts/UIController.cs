@@ -14,8 +14,6 @@ public class UIController : MonoBehaviour
     private int _currentShips;
     private int _currentScore;
 
-    private bool _isGameRunning;
-
     private void Awake()
     {
         HideGameOverPanel();
@@ -46,7 +44,6 @@ public class UIController : MonoBehaviour
 
     private void GameStarted()
     {
-        _isGameRunning = true;
         HideGameOverPanel();
         ResetScore();
     }
@@ -65,7 +62,6 @@ public class UIController : MonoBehaviour
 
     private void GameOver()
     {
-        _isGameRunning = false;
         _gameOverScore.text = $"Your Score: {_currentScore:0000}";
         _gameOverPanel.SetActive(true);
     }

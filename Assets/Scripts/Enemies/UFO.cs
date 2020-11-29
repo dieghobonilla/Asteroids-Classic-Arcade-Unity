@@ -20,7 +20,6 @@ public class UFO : Enemy
     private void OnEnable()
     {
         //FireRandomBullets();
-        //Debug.Log($"UFO OnEnable");
     }
 
     private void FireRandomBullets()
