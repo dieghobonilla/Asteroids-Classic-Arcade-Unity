@@ -5,8 +5,21 @@ using Random = UnityEngine.Random;
 
 public class EnemiesFactory : MonoBehaviour
 {
-    public event Action OnAllEnemiesInTheLevelDestroyed = delegate { }; 
-    
+    public event Action OnAllEnemiesInTheLevelDestroyed = delegate { };
+
+    public enum AsteroidsSize
+    {
+        Big,
+        Medium,
+        Small
+    }
+
+    public enum UFOSize
+    {
+        Big,
+        Small
+    }
+
     #region Serialized Variables
 
     [SerializeField] private Enemy _asteroidBig;
@@ -18,6 +31,8 @@ public class EnemiesFactory : MonoBehaviour
     #endregion
 
     #region Private Variables
+    
+    private delegate Vector2 GetRandomPositionDelegate();
 
     private bool _restartingGame;
     private int _startingAsteroidsCount;
@@ -30,106 +45,127 @@ public class EnemiesFactory : MonoBehaviour
     private readonly Queue<Enemy> _queueUFOSmall = new Queue<Enemy>();
 
     #endregion
-
+    
+    
     #region Public Methods
 
-    public void LoadNewLevel(int level, int startingAsteroids)
+    public void LoadNewLevel(int level, int enemiesCount)
     {
-        _startingAsteroidsCount = startingAsteroids;
+        //Debug.LogWarning($"LoadNewLevel level {level} enemiesCount {enemiesCount}");
         _smallAsteroidsDestroyedCount = 0;
-        CreateAllEnemies();
 
-        for (var i = 0; i < _startingAsteroidsCount; i++)
+        CreateAllEnemies(enemiesCount);
+        SpawnEnemies(GetAsteroidRandomInitialPosition, enemiesCount, _queueAsteroidsBig);
+    }
+
+    public void SpawnAsteroids(Vector2 position, AsteroidsSize asteroidsSize, int quantity = 2)
+    {
+        Queue<Enemy> queue = null;
+
+        switch (asteroidsSize)
         {
-            GetEnemy(_queueAsteroidsBig).Setup(GetRandomDirection(), GetAsteroidRandomInitialPosition(), _queueAsteroidsBig, this);
+            case AsteroidsSize.Big:
+                queue = _queueAsteroidsBig;
+
+                break;
+            case AsteroidsSize.Medium:
+                queue = _queueAsteroidsMedium;
+
+                break;
+            case AsteroidsSize.Small:
+                queue = _queueAsteroidsSmall;
+
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(asteroidsSize), asteroidsSize, null);
+        }
+
+        if (queue != null)
+        {
+            SpawnEnemies(GetAsteroidRandomInitialPosition, quantity, queue);
         }
     }
 
-    public void SpawnBigUFO(int quantity = 1)
+    public void SpawnUFOs(UFOSize ufoSize, int quantity = 1)
+    {
+        Queue<Enemy> queue = null;
+
+        switch (ufoSize)
+        {
+            case UFOSize.Big:
+                queue = _queueUFOBig;
+
+                break;
+            case UFOSize.Small:
+                queue = _queueUFOSmall;
+
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(ufoSize), ufoSize, null);
+        }
+
+        if (queue != null)
+        {
+            SpawnEnemies(GetUFORandomInitialPosition, quantity, queue);
+        }
+    }
+
+    private void SpawnEnemies(GetRandomPositionDelegate randomPositionDelegate, int quantity, Queue<Enemy> queue)
     {
         for (var i = 0; i < quantity; i++)
         {
-            GetEnemy(_queueUFOBig).Setup(GetRandomDirection(), GetUFORandomInitialPosition(), _queueUFOBig, this);
+            GetEnemy(queue).Setup(GetRandomDirection(), randomPositionDelegate.Invoke(), queue, this);
         }
     }
 
-    public void SpawnSmallUFO(int quantity = 1)
+    public void RegisterSmallAsteroidDestruction()
     {
-        for (var i = 0; i < quantity; i++)
+        _smallAsteroidsDestroyedCount++;
+
+        if (_smallAsteroidsDestroyedCount >= _maxSmallAsteroidsLevelCount)
         {
-            GetEnemy(_queueUFOSmall).Setup(GetRandomDirection(), GetUFORandomInitialPosition(), _queueUFOSmall, this);
+            OnAllEnemiesInTheLevelDestroyed?.Invoke();
         }
     }
-
+    
     public void QueueEnemy(Queue<Enemy> queue, Enemy enemy)
     {
-        // enemy.gameObject.SetActive(false);
-        // enemy.Rigidbody.velocity = Vector2.zero;
         enemy.SetActive(false);
         queue.Enqueue(enemy);
-    }
-
-    public void OnEnemyDestroyed(Enemy enemy)
-    {
-        Queue<Enemy> newQueue = null;
-
-        switch (enemy)
-        {
-            case Asteroid asteroid when asteroid.AsteroidSize == Asteroid.AsteroidType.Big:
-                newQueue = _queueAsteroidsMedium;
-
-                break;
-
-            case Asteroid asteroid when asteroid.AsteroidSize == Asteroid.AsteroidType.Medium:
-                newQueue = _queueAsteroidsSmall;
-
-                break;
-            
-            case Asteroid asteroid when asteroid.AsteroidSize == Asteroid.AsteroidType.Small:
-                _smallAsteroidsDestroyedCount++;
-                
-                if (_smallAsteroidsDestroyedCount >= _maxSmallAsteroidsLevelCount)
-                {
-                    OnAllEnemiesInTheLevelDestroyed?.Invoke();
-                }
-                break;
-        }
-
-        if (newQueue != null)
-        {
-            for (var i = 0; i < 2; i++)
-            {
-                GetEnemy(newQueue).Setup(GetRandomDirection(), enemy.transform.position, newQueue, this);
-            }
-        }
     }
 
     #endregion
 
     #region Private Methods
 
-    private void CreateAllEnemies()
+    private void CreateAllEnemies(int enemyCount)
     {
         // big asteroids
-        InitializeQueue(_queueAsteroidsBig, _asteroidBig, _startingAsteroidsCount);
+        InitializeQueue(_queueAsteroidsBig, _asteroidBig, enemyCount);
 
         // medium asteroids 2 times more than big asteroids 
-        InitializeQueue(_queueAsteroidsMedium, _asteroidMedium, _startingAsteroidsCount * 2);
+        InitializeQueue(_queueAsteroidsMedium, _asteroidMedium, enemyCount * 2);
 
         // small asteroids 4 times more than big asteroids
-        _maxSmallAsteroidsLevelCount = _startingAsteroidsCount * 4;
+        _maxSmallAsteroidsLevelCount = enemyCount * 4;
         InitializeQueue(_queueAsteroidsSmall, _asteroidSmall, _maxSmallAsteroidsLevelCount);
 
-        // big UFO half of big asteroids
-        InitializeQueue(_queueUFOBig, _ufoBig, _startingAsteroidsCount / 2);
+        // big UFO
+        InitializeQueue(_queueUFOBig, _ufoBig, enemyCount);
 
         // small UFO
-        InitializeQueue(_queueUFOSmall, _ufoSmall, _startingAsteroidsCount);
+        InitializeQueue(_queueUFOSmall, _ufoSmall, enemyCount);
     }
 
     private void InitializeQueue(Queue<Enemy> queue, Enemy prefab, int maxCount)
     {
+        if (queue.Count >= maxCount)
+        {
+            return;
+        }
+        
         var newCount = maxCount - queue.Count;
+        // Debug.Log($"InitializeQueue newCount {newCount} prefab {prefab.name}, max {maxCount} queue.Count {queue.Count}");
 
         for (var i = 0; i < newCount; i++)
         {
@@ -140,11 +176,12 @@ public class EnemiesFactory : MonoBehaviour
 
     private static Enemy GetEnemy(Queue<Enemy> queue)
     {
-        if (queue.Count == 0) { }
+        if (queue.Count <= 0)
+        {
+            Debug.LogError($"queue is empty");
+        }
 
         var enemy = queue.Dequeue();
-
-        //enemy.gameObject.SetActive(true);
         enemy.SetActive(true);
 
         return enemy;
@@ -153,7 +190,6 @@ public class EnemiesFactory : MonoBehaviour
     private static Vector2 GetAsteroidRandomInitialPosition()
     {
         var randomPositionX = Random.Range(-GameSettings.ScreenLimits.x, GameSettings.ScreenLimits.x);
-
         return new Vector2(randomPositionX, GameSettings.ScreenLimits.y);
     }
 

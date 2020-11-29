@@ -43,13 +43,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2187991504240207962}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7909fbe946c3b814fba6f7bf1cf651d7, type: 3}
+  m_Script: {fileID: 11500000, guid: d3af935d2dba4ec0b8d69db46d3ee321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MovementSpeed: 3
   Rigidbody: {fileID: 0}
   KillPoints: 100
-  AsteroidSize: 2
 --- !u!212 &2187991504240207940
 SpriteRenderer:
   m_ObjectHideFlags: 0

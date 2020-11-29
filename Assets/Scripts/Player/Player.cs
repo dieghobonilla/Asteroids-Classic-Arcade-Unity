@@ -26,11 +26,23 @@ public class Player : GameEntity, IKillable
     private float _nextBulletTime;
     private bool _shipPropulsion;
     private int _rapidFireBulletsCount;
-    private Coroutine _playerResetCoroutine;
+    private Coroutine _playerBlinkCoroutine;
 
     #endregion
     
     #region Unity Methods
+
+    private void OnEnable()
+    {
+        GameController.OnGameStarted += GameStarted;
+        GameController.OnGameOver += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameStarted -= GameStarted;
+        GameController.OnGameOver -= GameOver;
+    }
 
     protected override void Update()
     {
@@ -60,6 +72,7 @@ public class Player : GameEntity, IKillable
     public void OnObjectKilled()
     {
         ResetPosition();
+        Blink();
         OnPlayerDestroyed?.Invoke();
     }
 
@@ -163,21 +176,19 @@ public class Player : GameEntity, IKillable
     {
         Rigidbody.velocity = Vector2.zero;
         Transform.position = Vector3.zero;
-
-        Blink();
+        Transform.rotation = Quaternion.Euler(Vector3.up);
     }
 
     private void Blink()
     {
-        var boxCollider = GetComponent<BoxCollider2D>();
-        boxCollider.enabled = false;
+        BoxCollider.enabled = false;
         
-        if (_playerResetCoroutine != null)
+        if (_playerBlinkCoroutine != null)
         {
-            StopCoroutine(_playerResetCoroutine);
+            StopCoroutine(_playerBlinkCoroutine);
         }
 
-        _playerResetCoroutine = StartCoroutine(BlinkCoroutine());
+        _playerBlinkCoroutine = StartCoroutine(BlinkCoroutine());
 
         IEnumerator BlinkCoroutine()
         {
@@ -199,7 +210,25 @@ public class Player : GameEntity, IKillable
             }
 
             SpriteRenderer.enabled = true;
-            boxCollider.enabled = true;
+            BoxCollider.enabled = true;
         }
+    }
+
+    private void GameStarted()
+    {
+        ResetPosition();
+        
+        if (_playerBlinkCoroutine != null)
+        {
+            StopCoroutine(_playerBlinkCoroutine);
+        }
+
+        SpriteRenderer.enabled = true;
+        BoxCollider.enabled = true;
+    }
+
+    private void GameOver()
+    {
+        Rigidbody.velocity = Vector2.zero;
     }
 }

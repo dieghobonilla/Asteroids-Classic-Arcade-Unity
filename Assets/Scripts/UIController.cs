@@ -62,6 +62,7 @@ public class UIController : MonoBehaviour
 
     private void GameOver()
     {
+        UpdateShips(0);
         _gameOverScore.text = $"Your Score: {_currentScore:0000}";
         _gameOverPanel.SetActive(true);
     }

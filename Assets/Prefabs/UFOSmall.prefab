@@ -46,10 +46,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecf4606c21ce49f883a224cdb9d01ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementSpeed: 5
+  MovementSpeed: 6
   Rigidbody: {fileID: 0}
   KillPoints: 1000
-  UFOSize: 1
 --- !u!212 &4266589466714356479
 SpriteRenderer:
   m_ObjectHideFlags: 0

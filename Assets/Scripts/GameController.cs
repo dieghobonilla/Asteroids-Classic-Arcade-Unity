@@ -83,7 +83,6 @@ public class GameController : MonoBehaviour
         _currentLevel = 1;
 
         LoadNewLevel(_currentLevel, _startingAsteroids);
-
         SpawnUFOs();
 
         OnGameStarted?.Invoke();
@@ -100,6 +99,7 @@ public class GameController : MonoBehaviour
 
         if (PlayerShips <= 0)
         {
+            PlayerShips = 0;
             GameOver();
         }
     }
@@ -144,10 +144,10 @@ public class GameController : MonoBehaviour
             while (true)
             {
                 yield return new WaitForSeconds(waitTime);
-                _enemiesFactory.SpawnBigUFO();
+                _enemiesFactory.SpawnUFOs(EnemiesFactory.UFOSize.Big);
 
                 yield return new WaitForSeconds(waitTime);
-                _enemiesFactory.SpawnSmallUFO();
+                _enemiesFactory.SpawnUFOs(EnemiesFactory.UFOSize.Small);
 
                 yield return new WaitForSeconds(waitTime * 2f);
             }

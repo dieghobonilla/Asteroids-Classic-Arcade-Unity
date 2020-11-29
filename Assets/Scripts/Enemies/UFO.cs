@@ -7,14 +7,6 @@ public class UFO : Enemy
 {
     public static event Action<float, Vector3, Vector3> OnFire = delegate { };
 
-    public UFOType UFOSize;
-
-    public enum UFOType
-    {
-        Big,
-        Small
-    }
-
     private Coroutine _fireRandomBullets;
 
     private void OnEnable()
@@ -36,7 +28,7 @@ public class UFO : Enemy
             while (true)
             {
                 yield return new WaitForSeconds(0.25f); //GetRandomNumber());
-                OnFire?.Invoke(Rigidbody.velocity.magnitude, Transform.position, Vector2.up); //GetRandomDirection()
+                OnFire?.Invoke(Rigidbody.velocity.magnitude, Transform.position, GetRandomDirection());
             }
         }
 
@@ -68,5 +60,13 @@ public class UFO : Enemy
         {
             OnObjectKilled();
         }
+    }
+
+    protected override void OnEnemyKilled()
+    {
+    }
+
+    protected override void OnEnemyCreated()
+    {
     }
 }

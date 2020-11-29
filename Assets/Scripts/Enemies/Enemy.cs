@@ -4,19 +4,19 @@ using UnityEngine;
 
 public abstract class Enemy : GameEntity, IKillable
 {
-    //public static event Action<Enemy, Queue<Enemy>> OnEnemyDestroyed = delegate { };
     public static event Action<Enemy> OnEnemyDestroyed = delegate { };
 
     public int KillPoints = 100;
     
-    protected Queue<Enemy> EnemyQueue;
     protected EnemiesFactory EnemiesFactory;
+    protected Vector2 MovementDirection;
     
-    private Vector2 MovementDirection;
-    private bool _needsRestarting;
+    private Queue<Enemy> _enemyQueue;
+    private bool _isActive;
 
     private void OnEnable()
     {
+        _isActive = false;
         GameController.OnGameStarted += GameStarted;
         GameController.OnGameOver += GameOver;
     }
@@ -29,28 +29,29 @@ public abstract class Enemy : GameEntity, IKillable
 
     private void GameStarted()
     {
-        if (!_needsRestarting)
-        {
-            return;
-        }
-
-        _needsRestarting = false;
-        EnemiesFactory.QueueEnemy(EnemyQueue, this);
+        
     }
 
     private void GameOver()
     {
-        _needsRestarting = true;
+        if (_isActive)
+        {
+            EnemiesFactory.QueueEnemy(_enemyQueue, this);
+        }
     }
 
     protected abstract void OnCollisionDetected(Collider2D other);
+    protected abstract void OnEnemyKilled();
+    protected abstract void OnEnemyCreated();
 
-    public virtual void Setup(Vector2 movementDirection, Vector3 position, Queue<Enemy> enemiesQueue, EnemiesFactory enemiesFactory)
+    public void Setup(Vector2 movementDirection, Vector3 position, Queue<Enemy> enemiesQueue, EnemiesFactory enemiesFactory)
     {
         Transform.position = position;
         MovementDirection = movementDirection;
-        EnemyQueue = enemiesQueue;
+        _enemyQueue = enemiesQueue;
         EnemiesFactory = enemiesFactory;
+        _isActive = true;
+        OnEnemyCreated();
     }
 
     protected virtual void FixedUpdate()
@@ -70,7 +71,8 @@ public abstract class Enemy : GameEntity, IKillable
 
     public void OnObjectKilled()
     {
-        EnemiesFactory.QueueEnemy(EnemyQueue, this);
-        EnemiesFactory.OnEnemyDestroyed(this);
+        _isActive = false;
+        EnemiesFactory.QueueEnemy(_enemyQueue, this);
+        OnEnemyKilled();
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -9,7 +8,17 @@ public class BulletPrefab : GameEntity
     [SerializeField] private BulletsManager _bulletsManager;
 
     private Coroutine _fireCoroutine;
-    
+
+    private void OnEnable()
+    {
+        GameController.OnGameOver += GameOver;
+    }
+
+    private void OnDisable()
+    {
+        GameController.OnGameOver -= GameOver;
+    }
+
     protected override void Start()
     {
         base.Start();
@@ -30,9 +39,9 @@ public class BulletPrefab : GameEntity
         {
             StopCoroutine(_fireCoroutine);
         }
-        
+
         _fireCoroutine = StartCoroutine(Fire());
-        
+
         IEnumerator Fire()
         {
             var timer = 0f;
@@ -41,6 +50,7 @@ public class BulletPrefab : GameEntity
             {
                 timer += Time.deltaTime;
                 transform.position += direction * ((shipSpeed + _bulletSpeed) * Time.deltaTime);
+
                 yield return null;
             }
 
@@ -51,5 +61,13 @@ public class BulletPrefab : GameEntity
     private void DisableBullet()
     {
         _bulletsManager.AddBullet(this);
+    }
+
+    private void GameOver()
+    {
+        if (gameObject.activeInHierarchy)
+        {
+            DisableBullet();
+        }
     }
 }
