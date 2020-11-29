@@ -39,14 +39,6 @@ public class BulletsManager : MonoBehaviour
         GetBullet().Fire(shipSpeed, position, direction);
     }
 
-    private void GameStarted()
-    {
-        foreach (var bulletPrefab in _bulletsStack)
-        {
-            bulletPrefab.DisableBullet();
-        }
-    }
-
     private BulletPrefab GetBullet()
     {
         if (_bulletsStack.Count <= 0)
