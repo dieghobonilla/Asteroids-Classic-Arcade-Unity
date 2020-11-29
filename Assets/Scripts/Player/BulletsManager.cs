@@ -39,6 +39,14 @@ public class BulletsManager : MonoBehaviour
         GetBullet().Fire(shipSpeed, position, direction);
     }
 
+    private void GameStarted()
+    {
+        foreach (var bulletPrefab in _bulletsStack)
+        {
+            bulletPrefab.DisableBullet();
+        }
+    }
+
     private BulletPrefab GetBullet()
     {
         if (_bulletsStack.Count <= 0)
@@ -49,14 +57,14 @@ public class BulletsManager : MonoBehaviour
         }
 
         var bullet = _bulletsStack.Dequeue();
-        bullet.gameObject.SetActive(true);
+        bullet.SetActive(true);
 
         return bullet;
     }
 
     public void AddBullet(BulletPrefab bullet)
     {
-        bullet.gameObject.SetActive(false);
+        bullet.SetActive(false);
         _bulletsStack.Enqueue(bullet);
     }
 }

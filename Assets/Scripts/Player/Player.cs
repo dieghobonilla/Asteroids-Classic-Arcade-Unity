@@ -80,9 +80,9 @@ public class Player : GameEntity, IKillable
 
     private void ProcessInput()
     {
-        _shipPropulsion = Input.GetAxisRaw("Vertical") > 0;
+        _shipPropulsion = Input.GetAxis("Vertical") > 0;
 
-        var horizontalInput = Input.GetAxisRaw("Horizontal");
+        var horizontalInput = Input.GetAxis("Horizontal");
 
         if (Mathf.Abs(horizontalInput) > 0)
         {
@@ -232,5 +232,6 @@ public class Player : GameEntity, IKillable
     {
         _shipPropulsion = false;
         Rigidbody.velocity = Vector2.zero;
+        Input.ResetInputAxes();
     }
 }

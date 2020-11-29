@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class BulletPrefab : GameEntity
     [SerializeField] private float _bulletLifeTime = 0.5f;
     [SerializeField] private BulletsManager _bulletsManager;
 
+    private bool _isActive;
     private Coroutine _fireCoroutine;
 
     private void OnEnable()
@@ -27,12 +29,12 @@ public class BulletPrefab : GameEntity
 
     public void BulletHit()
     {
-        StopCoroutine(_fireCoroutine);
         DisableBullet();
     }
 
     public void Fire(float shipSpeed, Vector3 position, Vector3 direction)
     {
+        _isActive = true;
         transform.position = position;
 
         if (_fireCoroutine != null)
@@ -58,16 +60,23 @@ public class BulletPrefab : GameEntity
         }
     }
 
-    private void DisableBullet()
+    public void DisableBullet()
     {
+        _isActive = false;
+        if (_fireCoroutine != null)
+        {
+            StopCoroutine(_fireCoroutine);
+        }
+        
+        Transform.position = Vector3.zero;
         _bulletsManager.AddBullet(this);
     }
 
     private void GameOver()
     {
-        if (gameObject.activeInHierarchy)
+        if (_isActive)
         {
-            DisableBullet();
+            DisableBullet();   
         }
     }
 }
