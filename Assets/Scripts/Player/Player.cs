@@ -80,9 +80,9 @@ public class Player : GameEntity, IKillable
 
     private void ProcessInput()
     {
-        _shipPropulsion = Input.GetAxis("Vertical") > 0;
+        _shipPropulsion = Input.GetAxisRaw("Vertical") > 0;
 
-        var horizontalInput = Input.GetAxis("Horizontal");
+        var horizontalInput = Input.GetAxisRaw("Horizontal");
 
         if (Mathf.Abs(horizontalInput) > 0)
         {
@@ -174,6 +174,7 @@ public class Player : GameEntity, IKillable
     
     private void ResetPosition()
     {
+        _shipPropulsion = false;
         Rigidbody.velocity = Vector2.zero;
         Transform.position = Vector3.zero;
         Transform.rotation = Quaternion.Euler(Vector3.up);
@@ -229,6 +230,7 @@ public class Player : GameEntity, IKillable
 
     private void GameOver()
     {
+        _shipPropulsion = false;
         Rigidbody.velocity = Vector2.zero;
     }
 }
