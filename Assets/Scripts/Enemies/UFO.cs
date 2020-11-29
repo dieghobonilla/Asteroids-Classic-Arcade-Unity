@@ -8,7 +8,7 @@ public class UFO : Enemy
     public static event Action<float, Vector3, Vector3> OnFire = delegate { };
 
     public UFOType UFOSize;
-    
+
     public enum UFOType
     {
         Big,
@@ -29,15 +29,14 @@ public class UFO : Enemy
         {
             StopCoroutine(_fireRandomBullets);
         }
-        
+
         _fireRandomBullets = StartCoroutine(FireRandomBulletsCoroutine());
-        
+
         IEnumerator FireRandomBulletsCoroutine()
         {
             while (true)
             {
                 yield return new WaitForSeconds(0.25f); //GetRandomNumber());
-                Debug.Log($"UFO FireRandomBulletsCoroutine mag {Rigidbody.velocity.magnitude}");
                 OnFire?.Invoke(Rigidbody.velocity.magnitude, Transform.position, Vector2.up); //GetRandomDirection()
             }
         }
@@ -57,17 +56,18 @@ public class UFO : Enemy
         }
     }
 
-    public override void OnCollisionDetected(Collider2D other)
+    protected override void OnCollisionDetected(Collider2D other)
     {
         if (other.CompareTag("Bullet"))
         {
             other.GetComponent<BulletPrefab>().BulletHit();
+            OnObjectKilled();
             FireEventOnEnemyDestroyed();
         }
 
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("UFO"))
         {
-            FireEventOnEnemyDestroyed();
+            OnObjectKilled();
         }
     }
 }

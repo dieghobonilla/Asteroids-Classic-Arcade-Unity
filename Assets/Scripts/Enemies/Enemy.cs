@@ -2,25 +2,58 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : GameEntity
+public abstract class Enemy : GameEntity, IKillable
 {
-    public static event Action<Enemy, Queue<Enemy>> OnEnemyDestroyed = delegate(Enemy enemy, Queue<Enemy> queue) { };
+    //public static event Action<Enemy, Queue<Enemy>> OnEnemyDestroyed = delegate { };
+    public static event Action<Enemy> OnEnemyDestroyed = delegate { };
 
     public int KillPoints = 100;
     
-    protected Queue<Enemy> Queue;
-    protected Vector2 MovementDirection;
+    protected Queue<Enemy> EnemyQueue;
+    protected EnemiesFactory EnemiesFactory;
+    
+    private Vector2 MovementDirection;
+    private bool _needsRestarting;
 
-    public abstract void OnCollisionDetected(Collider2D other);
+    private void OnEnable()
+    {
+        GameController.OnGameStarted += GameStarted;
+        GameController.OnGameOver += GameOver;
+    }
 
-    public virtual void Setup(Vector2 movementDirection, Vector3 position, Queue<Enemy> enemiesQueue)
+    private void OnDisable()
+    {
+        GameController.OnGameStarted -= GameStarted;
+        GameController.OnGameOver -= GameOver;
+    }
+
+    private void GameStarted()
+    {
+        if (!_needsRestarting)
+        {
+            return;
+        }
+
+        _needsRestarting = false;
+        EnemiesFactory.QueueEnemy(EnemyQueue, this);
+    }
+
+    private void GameOver()
+    {
+        _needsRestarting = true;
+    }
+
+    protected abstract void OnCollisionDetected(Collider2D other);
+
+    public virtual void Setup(Vector2 movementDirection, Vector3 position, Queue<Enemy> enemiesQueue, EnemiesFactory enemiesFactory)
     {
         Transform.position = position;
         MovementDirection = movementDirection;
-        Queue = enemiesQueue;
+        EnemyQueue = enemiesQueue;
+        EnemiesFactory = enemiesFactory;
     }
 
-    private void FixedUpdate()
+    protected virtual void FixedUpdate()
     {
         Rigidbody.velocity = MovementDirection * MovementSpeed;
     }
@@ -32,6 +65,12 @@ public abstract class Enemy : GameEntity
 
     protected void FireEventOnEnemyDestroyed()
     {
-        OnEnemyDestroyed?.Invoke(this, Queue);
+        OnEnemyDestroyed?.Invoke(this);
+    }
+
+    public void OnObjectKilled()
+    {
+        EnemiesFactory.QueueEnemy(EnemyQueue, this);
+        EnemiesFactory.OnEnemyDestroyed(this);
     }
 }

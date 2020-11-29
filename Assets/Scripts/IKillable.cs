@@ -1,0 +1,4 @@
+interface IKillable
+{
+    void OnObjectKilled();
+}

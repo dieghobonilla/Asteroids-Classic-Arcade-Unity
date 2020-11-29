@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,11 +7,15 @@ public class UIController : MonoBehaviour
     [SerializeField] private Text _level;
     [SerializeField] private Text _playerShips;
     [SerializeField] private Text _score;
-    
+    [SerializeField] private Text _gameOverScore;
     [SerializeField] private GameObject _gameOverPanel;
 
+    private int _currentLevel;
+    private int _currentShips;
     private int _currentScore;
-    
+
+    private bool _isGameRunning;
+
     private void Awake()
     {
         HideGameOverPanel();
@@ -23,18 +25,18 @@ public class UIController : MonoBehaviour
     {
         GameController.OnGameStarted += GameStarted;
         GameController.OnGameOver += GameOver;
-        GameController.OnLevelCleared += LevelCleared;
-        GameController.OnPlayerDestroyed += PlayerDestroyed;
-        Enemy.OnEnemyDestroyed += EnemyDestroyed;
+        GameController.OnLevelCleared += UpdateLevel;
+        GameController.OnPlayerDestroyed += UpdateShips;
+        Enemy.OnEnemyDestroyed += UpdateScore;
     }
 
     private void OnDisable()
     {
         GameController.OnGameStarted -= GameStarted;
         GameController.OnGameOver -= GameOver;
-        GameController.OnLevelCleared -= LevelCleared;
-        GameController.OnPlayerDestroyed -= PlayerDestroyed;
-        Enemy.OnEnemyDestroyed -= EnemyDestroyed;
+        GameController.OnLevelCleared -= UpdateLevel;
+        GameController.OnPlayerDestroyed -= UpdateShips;
+        Enemy.OnEnemyDestroyed -= UpdateScore;
     }
 
     private void Start()
@@ -44,29 +46,41 @@ public class UIController : MonoBehaviour
 
     private void GameStarted()
     {
+        _isGameRunning = true;
         HideGameOverPanel();
+        ResetScore();
+    }
+
+    private void ResetScore()
+    {
+        _currentScore = 0;
+        UpdateLevel(1);
+        UpdateShips(GameController.PlayerShips);
     }
 
     private void HideGameOverPanel()
     {
         _gameOverPanel.SetActive(false);
     }
+
     private void GameOver()
     {
+        _isGameRunning = false;
+        _gameOverScore.text = $"Your Score: {_currentScore:0000}";
         _gameOverPanel.SetActive(true);
     }
-    
-    private void LevelCleared(int nextLevel)
+
+    private void UpdateLevel(int nextLevel)
     {
         _level.text = $"Level: {nextLevel:0000}";
     }
 
-    private void PlayerDestroyed(int ships)
+    private void UpdateShips(int ships)
     {
         _playerShips.text = $"Ships: {ships:0000}";
     }
-    
-    private void EnemyDestroyed(Enemy enemy, Queue<Enemy> arg2)
+
+    private void UpdateScore(Enemy enemy)
     {
         _currentScore += enemy.KillPoints;
         _score.text = $"Score: {_currentScore:0000}";

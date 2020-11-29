@@ -8,8 +8,9 @@ public abstract class GameEntity : MonoBehaviour
     [SerializeField] protected float MovementSpeed = 50f;
 
     public Rigidbody2D Rigidbody;
-    
     protected SpriteRenderer SpriteRenderer;
+    protected BoxCollider2D BoxCollider;
+    
     protected Transform Transform { get; private set; }
 
     // Avoid creating new Vector //new Vector3(transform.position.x, GameController.ScreenLimits.y);
@@ -26,9 +27,11 @@ public abstract class GameEntity : MonoBehaviour
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
         Rigidbody = GetComponent<Rigidbody2D>();
+        BoxCollider = GetComponent<BoxCollider2D>();
 
         Assert.IsNotNull(SpriteRenderer);
         Assert.IsNotNull(Rigidbody);
+        Assert.IsNotNull(BoxCollider);
 
         _entitySize = SpriteRenderer.bounds.extents;
     }
@@ -44,6 +47,17 @@ public abstract class GameEntity : MonoBehaviour
     protected virtual void Update()
     {
         CheckScreenLimits();
+    }
+
+    public void SetActive(bool isActive)
+    {
+        SpriteRenderer.enabled = isActive;
+        BoxCollider.enabled = isActive;
+
+        if (!isActive)
+        {
+            Rigidbody.velocity = Vector2.zero;
+        }
     }
 
     private void CheckScreenLimits()

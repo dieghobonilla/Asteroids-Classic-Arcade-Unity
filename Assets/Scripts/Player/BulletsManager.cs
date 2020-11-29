@@ -12,19 +12,12 @@ public class BulletsManager : MonoBehaviour
     {
         Player.OnFire += Fire;
         UFO.OnFire += Fire;
-        Enemy.OnEnemyDestroyed += EnemyDestroyed;
     }
 
     private void OnDisable()
     {
         Player.OnFire -= Fire;
         UFO.OnFire -= Fire;
-        Enemy.OnEnemyDestroyed -= EnemyDestroyed;
-    }
-
-    private void EnemyDestroyed(Enemy enemy, Queue<Enemy> queue)
-    {
-        
     }
 
     private void Start()
