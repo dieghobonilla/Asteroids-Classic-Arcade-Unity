@@ -82,7 +82,7 @@ public class EnemiesFactory : MonoBehaviour
 
         if (queue != null)
         {
-            SpawnEnemies(GetAsteroidRandomInitialPosition, quantity, queue);
+            SpawnEnemies(position, quantity, queue);
         }
     }
 
@@ -112,9 +112,14 @@ public class EnemiesFactory : MonoBehaviour
 
     private void SpawnEnemies(GetRandomPositionDelegate randomPositionDelegate, int quantity, Queue<Enemy> queue)
     {
+        SpawnEnemies(randomPositionDelegate.Invoke(), quantity, queue);
+    }
+    
+    private void SpawnEnemies(Vector2 position, int quantity, Queue<Enemy> queue)
+    {
         for (var i = 0; i < quantity; i++)
         {
-            GetEnemy(queue).Setup(GetRandomDirection(), randomPositionDelegate.Invoke(), queue, this);
+            GetEnemy(queue).Setup(GetRandomDirection(), position, queue, this);
         }
     }
 
